@@ -107,6 +107,15 @@ app.post("/login", (req, res) => {
   }
 });
 
+app.get("/", (req, res) => {
+  res.send("Hello World! This is my first BE project");
+});
+
+app.get("/users", async (req, res) => {
+  const users = await client.queryUsers({});
+  res.status(200).json(users);
+});
+
 app.listen(PORT, () => {
   console.log(`Server is listening to you bro from ${PORT}...`);
 });
